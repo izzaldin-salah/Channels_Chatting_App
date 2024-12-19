@@ -28,9 +28,6 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
 
-    - name: version
-      run: flutter --version
-
     - name: Decode Keystore
       run: |
         echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/app/keystore.jks
