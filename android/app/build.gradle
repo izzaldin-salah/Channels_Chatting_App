@@ -36,7 +36,14 @@ android {
         minSdkVersion 23
         compileSdkVersion 34
     }
-
+    signingConfigs {
+        release {
+            storeFile file("release.keystore")
+            storePassword System.getenv("STORE_PASSWORD")
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
+        }
+        }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -47,14 +54,7 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    signingConfigs {
-        release {
-            storeFile file("release.keystore")
-            storePassword System.getenv("STORE_PASSWORD")
-            keyAlias System.getenv("KEY_ALIAS")
-            keyPassword System.getenv("KEY_PASSWORD")
-        }
-        }
+
     
 }
 
